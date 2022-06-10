@@ -1,22 +1,6 @@
 use regex::Regex;
 use std::io::stdin;
 
-/**
- * ## Bài tập 2
- * Cho 1 chuỗi str Slice như dưới đây. Nhập 1 từ bất kỳ từ bàn phím, in ra số lượng từ này xuất hiện trong chuỗi đã cho.
- *  `https://ars.els-cdn.com/content/image/1-s2.0-S0960982203005347-mmc6.txt`
- * *Note: Nâng cao hơn : Tìm kiếm không phân biêt chữ hoa thường, theo dạng regex.
- */
-
-/**
- * SOLUTION
- * Basic
- *    - The idea here is we try to make use of `windows` method.
- * Advanced
- *    - Relative Search: make use of `to_lowercase` method before searching.
- *    - Regex Search: make use of the `regex` dependency
- */
-
 #[derive(PartialEq)]
 enum SearchType {
     Absolute,
@@ -25,7 +9,7 @@ enum SearchType {
 }
 const GIVEN_SENTENCE: &str =
     "https://ars.els-cdn.com/content/image/1-s2.0-S0960982203005347-mmc6.Txtx";
-const GIVEN_SENTENCE_TO_SEARCH_REGEX: &str = "This is foo and FOO foo as well as FoO.";
+// const GIVEN_SENTENCE_TO_SEARCH_REGEX: &str = "This is foo and FOO foo as well as FoO.";
 
 fn main() {
     let input = input("Enter something to search", None);
@@ -121,7 +105,7 @@ fn count_word_with_specific_type(input: &str, search_type: SearchType) -> u32 {
 fn search_by_regex(regex: &str) -> u32 {
     // regex = (?i)foo // sample input regex
     let _regex: Regex = Regex::new(regex).unwrap();
-    _regex.find_iter(GIVEN_SENTENCE_TO_SEARCH_REGEX).count() as u32
+    _regex.find_iter(GIVEN_SENTENCE).count() as u32
 }
 
 /**
