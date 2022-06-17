@@ -19,7 +19,7 @@ where
         self.database.insert(String::from(student), grade);
     }
 
-    pub fn grades(&mut self) -> Vec<T> {
+    pub fn grades(&self) -> Vec<T> {
         let mut _grades: Vec<T> = self.database.values().cloned().collect();
         _grades.sort();
         _grades.dedup();

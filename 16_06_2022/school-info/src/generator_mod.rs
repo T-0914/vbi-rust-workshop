@@ -14,7 +14,10 @@ where
     result
 }
 
-fn pick_one<T: Copy>(data: &Vec<T>) -> T {
+fn pick_one<T>(data: &Vec<T>) -> T
+where
+    T: Copy,
+{
     let data_len = data.len();
     let scoped_random_number: usize = random() % data_len;
     data[scoped_random_number]

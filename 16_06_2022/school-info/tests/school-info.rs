@@ -2,7 +2,7 @@ use school_info as school;
 
 #[test]
 fn school_with_noone() {
-    let mut new_school = school::School::<u32>::new();
+    let new_school = school::School::<u32>::new();
     assert_eq!(new_school.grades(), vec![]);
 }
 
@@ -59,4 +59,3 @@ fn school_with_three_students_advanced() {
 
     assert_eq!(school.grade("F"), vec!["Alice", "Bob"])
 }
-
